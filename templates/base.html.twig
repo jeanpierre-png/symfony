@@ -6,6 +6,7 @@
         <title>{% block title %}Stubborn{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
     </head>
 
     <body>
@@ -18,8 +19,20 @@
 
             <nav>
                 <a href="{{ path('app_home') }}">Accueil</a>
-                <a href="{{ path('app_register') }}">S'inscrire</a>
-                <a href="{{ path('app_login') }}">Se connecter</a>
+
+                {% if app.user %}
+                    
+                    <a href="{{ path('app_shop') }}">Boutique</a>
+                    <a href="{{ path('app_cart') }}">Panier</a>
+                    <a href="{{ path('app_logout') }}">Se déconnecter</a>
+
+                {% else %}   
+
+                    <a href="{{ path('app_register') }}">S'inscrire</a>
+                    <a href="{{ path('app_login') }}">Se connecter</a>
+
+                {% endif %}    
+
             </nav>
         </header>
 
