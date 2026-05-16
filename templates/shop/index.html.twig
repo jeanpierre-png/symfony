@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique{% endblock %}
+
+{% block body %}
+    {% for product in products %}
+        <div>
+            <img src="{{ asset(product.image) }}">
+            <p>{{ product.name }}</p>
+            <p>{{ product.price }} €</p>
+        </div>
+    {% endfor %}    
+{% endblock %}

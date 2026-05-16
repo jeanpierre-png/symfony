@@ -7,18 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class HomeController extends AbstractController
+final class ShopController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/shop', name: 'app_shop')]
     public function index(ProductRepository $productRepository): Response
     {
-        $products = $productRepository->findBy(
-            ['featured' => true],
-            [],
-            3
-        );
+        $products = $productRepository->findAll();
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('shop/index.html.twig', [
             'products' => $products,
         ]);
     }
