@@ -1,0 +1,93 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+.product-detail {
+    display: flex;
+    width: 1000px;
+    border: 1px solid black;
+    margin: 30px 0px 60px;
+    gap: 150px;
+}
+
+.product-detail-img {
+    width: 500px;
+}
+
+.product-detail-img img {
+    width: 100%;
+    padding: 10px;
+}
+
+.product-detail-second {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-detail-info{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.product-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+table {
+    width: 125px;
+    height: 150px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr {
+    margin: 2px;
+}
+
+th {
+    border-bottom: 1px solid black;
+    padding: 7px;
+}
+
+td {
+    cursor: pointer;
+    padding-left: 4px;
+}
+
+.fin-row {
+    display: flex;
+    height: 20px;
+}
+
+td:not(.fin-row):hover {
+    background: rgb(234, 248, 255);
+}
+
+.btn-panier {
+    display: flex;
+    width: 200px;
+}
+
+.btn-panier a {
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 18px;
+    font-size: 0.78rem;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-panier a:hover {
+    background: rgb(234, 248, 255);
+    color: black;
+}
+

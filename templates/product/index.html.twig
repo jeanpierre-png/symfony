@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="product-detail">
+
+    <div class="product-detail-img">
+        <img src="{{ asset(product.image) }}" alt="{{ product.name }}">
+    </div>
+
+    <div class="product-datail-second">
+    
+        <div class="product-detail-info">
+
+            <div class="product-text">
+                <p class="product-name">{{ product.name }}</p>
+                <p class="product-price">{{ product.price }} €</p>
+            </div>
+
+            <table class="tailles">
+                <tr><th>Taille</th></tr>
+                <tr><td>XS</td></tr>
+                <tr><td>S</td></tr>
+                <tr><td>M</td></tr>
+                <tr><td>L</td></tr>
+                <tr><td>XL</td></tr>
+                <tr><td class="fin-row"></td></tr>
+            </table>
+        </div>
+
+        <div class="btn-panier">
+            <a href="#">AJOUTER AU PANIER</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

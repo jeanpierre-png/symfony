@@ -1,13 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Boutique{% endblock %}
-
 {% block body %}
-    {% for product in products %}
-        <div>
-            <img src="{{ asset(product.image) }}">
-            <p>{{ product.name }}</p>
-            <p>{{ product.price }} €</p>
-        </div>
-    {% endfor %}    
+
+<div class="shop-container">
+
+    <div class="product">
+    
+        <aside class="filtres">
+            <p>Fourchette de prix</p>
+            <ul>
+                <li>10 à 29 €</li>
+                <li>30 à 35 €</li>
+                <li>35 à 50 €</li>
+            </ul>
+        </aside>
+ 
+        {% for product in products %}
+
+            <div class="products-card">
+        
+                <img src="{{ asset(product.image) }}">
+
+                <div class="cards">
+                    <p class="product-name">{{ product.name }}</p>
+                    
+                    <div class="card-bottom">
+                        <p class="product-price">{{ product.price }} €</p>
+                        {% if app.user %}
+                            <div class="btn-view">
+                                <a href="{{ path('app_product', {'id': product.id}) }}">VOIR</a>
+                            </div>
+                        {% endif %} 
+                    </div>    
+                </div>
+            </div>
+        {% endfor %}
+    </div>  
+</div>
+      
 {% endblock %}
