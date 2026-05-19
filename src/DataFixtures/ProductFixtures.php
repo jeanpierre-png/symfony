@@ -22,6 +22,41 @@ class ProductFixtures extends Fixture
                 'image' => 'images/products/2.jpeg'
             ],
             [
+                'name' => 'Street',
+                'price' => 34,50,
+                'image' => 'images/products/3.jpeg'
+            ],
+            [
+                'name' => 'Pokeball**',
+                'price' => 45,
+                'image' => 'images/products/4.jpeg'
+            ],
+            [
+                'name' => 'PinkLady',
+                'price' => 29.90,
+                'image' => 'images/products/5.jpeg'
+            ],
+            [
+                'name' => 'Snow',
+                'price' => 32,
+                'image' => 'images/products/6.jpeg'
+            ],
+            [
+                'name' => 'Greyback',
+                'price' => 28.50,
+                'image' => 'images/products/7.jpeg'
+            ],
+            [
+                'name' => 'BlueCloud',
+                'price' => 45,
+                'image' => 'images/products/8.jpeg'
+            ],
+            [
+                'name' => 'BornInUsa ** ',
+                'price' => 59.90,
+                'image' => 'images/products/9.jpeg'
+            ],
+            [
                 'name' =>'GreenSchool',
                 'price' => 42.20,
                 'image' => 'images/products/10.jpeg'

@@ -16,9 +16,8 @@
                     <p class="product-price">{{ product.price }} €</p>
                     {% if app.user %}
                         <div class="btn-view">
-                            <a href="#" >VOIR</a>
+                            <a href="{{ path('app_product', {'id': product.id}) }}">VOIR</a>
                         </div>
-                    
                     {% endif %} 
                 </div>
             </div>
