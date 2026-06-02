@@ -61,10 +61,10 @@ td {
     padding-left: 4px;
 }
 
-.fin-row {
+/*.fin-row {
     display: flex;
     height: 20px;
-}
+}*/
 
 td:not(.fin-row):hover {
     background: rgb(234, 248, 255);
@@ -89,5 +89,10 @@ td:not(.fin-row):hover {
 .btn-panier a:hover {
     background: rgb(234, 248, 255);
     color: black;
+}
+
+.taille-label input[type="radio"]:checked ~ span {
+    background: rgb(215, 236, 214);
+    color: white;
 }
 
