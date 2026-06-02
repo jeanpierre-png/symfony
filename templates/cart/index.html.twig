@@ -1,20 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="cart-container">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/nozajean-pierre/Desktop/stubborn-shop/src/Controller/CartController.php</code></li>
-        <li>Your template at <code>/Users/nozajean-pierre/Desktop/stubborn-shop/templates/cart/index.html.twig</code></li>
-    </ul>
+    {% for item in products %}
+
+    <div class="cart-card">
+        <img src="{{ asset(item.product.image) }}" alt="{{ item.product.name }}">
+        
+        <div class="cart-info">
+            <div class="cart-info-1">
+                <p class="product-name">{{ item.product.name }}</p>
+                <p class="product-price">{{ item.product.price }}</p>
+                <p>Taille : {{ item.size }}</p>
+            </div>
+
+            <a href="{{ path('app_cart_remove', {'key': item.key}) }}" class="btn-remove">RETIRER DU PANIER</a> 
+
+        </div>
+        
+    </div>
+    {% endfor %}
+    
+    
+
+    <div class="cart-card-1">
+
+        <div class="total">
+            TOTAL : {{ total }} €
+        </div>
+            
+        <div class="cart-actions">
+
+            <a href="{{ path('app_checkout') }}" class="btn-control">FINALISER MA COMMANDE</a>
+            
+            <a href ="{{ path('app_shop') }}" class="btn-shop">CONTINUER MES ACHATS</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
