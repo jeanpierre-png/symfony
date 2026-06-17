@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
     <head>
@@ -10,9 +11,11 @@
         <link rel="stylesheet" href="{{ asset('styles/shop.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/product.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/cart.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/admin.css') }}">
     </head>
 
     <body>
+
         <header class="header">
 
             <div class="logo">
@@ -20,23 +23,44 @@
                 <p>Slogan</p>
             </div>
 
-            <nav>
-                <a href="{{ path('app_home') }}">Accueil</a>
 
-                {% if app.user %}
-                    
+            {% if app.request.attributes.get('_route') starts with 'app_admin' %}
+
+                <div class="title-admin">
+                    <h1>Back-Office</h1>
+                </div>
+
+                <nav>
+
                     <a href="{{ path('app_shop') }}">Boutique</a>
-                    <a href="{{ path('app_cart') }}">Panier</a>
-                    <a href="{{ path('app_logout') }}">Se déconnecter</a>
 
-                {% else %}   
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                    {% endif %}
+                </nav>
 
-                    <a href="{{ path('app_register') }}">S'inscrire</a>
-                    <a href="{{ path('app_login') }}">Se connecter</a>
+            {% else %}
 
-                {% endif %}    
+                <nav>
 
-            </nav>
+                    <a href="{{ path('app_home') }}">Accueil</a>
+
+                    {% if app.user %}
+                                    
+                        <a href="{{ path('app_shop') }}">Boutique</a>
+                        <a href="{{ path('app_cart') }}">Panier</a>
+                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+
+                    {% else %}   
+
+                        <a href="{{ path('app_register') }}">S'inscrire</a>
+                        <a href="{{ path('app_login') }}">Se connecter</a>
+
+                    {% endif %}
+                </nav> 
+
+            {% endif %} 
+
         </header>
 
         <main>

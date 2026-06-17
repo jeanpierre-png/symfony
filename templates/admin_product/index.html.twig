@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="admin-add">
+
+    {{ form_start(form) }}
+
+    <div class="admin-add-product-cart">
+
+        <div class="admin-add-product-img">
+            {{ form_widget(form.image)}}
+        </div>
+
+        <div class="admin-product-info">
+            <div class="admin-add-product">
+                <div>
+                    <p>Nom</p>
+                    {{ form_widget(form.name) }}
+                </div>
+                <div>
+                    <p>Prix</p>
+                    {{ form_widget(form.price) }}
+                </div>
+                <div>
+                    <p>Stock XS</p>
+                    {{ form_widget(form.stockXS) }}
+                </div>
+                <div>
+                    <p>Stock S</p>
+                    {{ form_widget(form.stockS) }}
+                </div>
+                <div>
+                    <p>Stock M</p>
+                    {{ form_widget(form.stockM) }}
+                </div>
+                <div>
+                    <p>Stock L</p>
+                    {{ form_widget(form.stockL) }}
+                </div>
+                <div>
+                    <p>Stock XL</p>
+                    {{ form_widget(form.stockXL) }}
+                </div>
+            </div>
+
+            <div class="admin-product-actions">
+                <button type="submit" class="btn-add">AJOUTER</button>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+{{ form_end(form, {'render_rest': false}) }}
+
+
+{% for product in products %}
+
+<div class="admin-product-cart">
+
+    <div class="admin-product-img">
+        <img src="{{ asset(product.image) }}" alt="{{ product.name }}">
+    </div>
+
+    <div class="admin-product-info">
+
+        <div class="admin-product">
+            <div>
+                <p>Nom</p>
+                <span>{{ product.name }}</span>
+            </div>
+
+            <div>
+                <p>Prix</p>
+                <span>{{ product.price }} €</span>
+            </div>
+
+            <div>
+                <p>Stock XS</p>
+                <span>{{ product.stockXS }}</span>
+            </div>
+
+            <div>
+                <p>Stock S</p>
+                <span>{{ product.stockS }}</span>
+            </div>
+
+            <div>
+                <p>Stock M</p>
+                <span>{{ product.stockM }}</span>
+            </div>
+
+            <div>
+                <p>Stock L</p>
+                <span>{{ product.stockL }}</span>
+            </div>
+
+            <div>
+                <p>Stock XL</p>
+                <span>{{ product.stockXL }}</span>
+            </div>
+        </div>
+
+        <div class="admin-product-actions">
+
+             <a href="{{ path('app_admin_product_delete', {'id': product.id}) }}" class="btn-delete">
+                SUPPRIMER
+            </a>
+
+            <a href="{{ path('app_admin_product_edit', {'id': product.id}) }}" class="btn-edit">
+                MODIFIER
+            </a>
+
+        </div>
+    
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
