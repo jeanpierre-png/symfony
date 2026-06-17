@@ -1,13 +1,11 @@
-main {
-    display: flex;
-    justify-content: center;
-}
 .product-detail {
     display: flex;
     width: 1000px;
     border: 1px solid black;
     margin: 30px 0px 60px;
-    gap: 150px;
+    gap: 96px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .product-detail-img {
@@ -19,29 +17,34 @@ main {
     padding: 10px;
 }
 
-.product-detail-second {
-    display: flex;
-    flex-direction: column;
+.product-datail-second {
+    margin-top: 60px;
 }
 
 .product-detail-info{
-    display: flex;
-    align-items: flex-start;
     margin-top: 20px;
 }
 
-.product-text {
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.info {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    gap: 20px;
+    justify-content: start;
+    gap: 30px;
+    margin-top: 30px;
 }
 
 table {
     width: 125px;
     height: 150px;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-bottom: 20px;
     border: 1px solid black;
     border-collapse: collapse;
@@ -61,29 +64,24 @@ td {
     padding-left: 4px;
 }
 
-/*.fin-row {
-    display: flex;
-    height: 20px;
-}*/
-
 td:not(.fin-row):hover {
     background: rgb(234, 248, 255);
 }
 
-.btn-panier {
-    display: flex;
-    width: 200px;
-}
-
-.btn-panier a {
-    width: 100%;
+button {
+    width: 90%;
     text-align: center;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px 18px;
     font-size: 0.78rem;
     text-decoration: none;
+    background: white;
     color: black;
+}
+
+.btn-panier {
+    width: 230px;
 }
 
 .btn-panier a:hover {
@@ -91,8 +89,16 @@ td:not(.fin-row):hover {
     color: black;
 }
 
+button:hover {
+    background: rgb(234, 248, 255);
+    cursor: pointer;
+}
+
 .taille-label input[type="radio"]:checked ~ span {
     background: rgb(215, 236, 214);
     color: white;
 }
 
+.filtres li:hover {
+    background: rgb(234, 248, 255);
+}

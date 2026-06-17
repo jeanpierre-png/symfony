@@ -22,6 +22,11 @@ header {
     width: 140px;
 }
 
+.title-admin {
+    border: 1px solid black;
+    padding: 5px;
+}
+
 nav a {
     margin-left: 20px;
     text-decoration: none;

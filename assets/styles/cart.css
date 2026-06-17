@@ -41,6 +41,11 @@ p{
     cursor: pointer;
 }
 
+.btn-remove:hover {
+    background: rgb(234, 248, 255);
+    cursor: pointer;
+}
+
 .cart-card-1 {
     display: flex;
     justify-content: flex-end;
