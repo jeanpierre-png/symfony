@@ -33,6 +33,11 @@ nav a {
     color: black;
 }
 
+.active-link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 main {
     padding: auto;
 

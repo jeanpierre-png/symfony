@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+
 
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
@@ -22,7 +25,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public const LOGIN_ROUTE = 'app_login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator, private UserRepository $userRepository)
     {
     }
 
@@ -31,6 +34,14 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         $email = $request->getPayload()->getString('_username');
 
         $request->getSession()->set(SecurityRequestAttributes::LAST_USERNAME, $email);
+
+        $user = $this->userRepository->findOneBy(['email' => $email]);
+
+        if ($user && !$user->isVerified()) {
+            throw new CustomUserMessageAuthenticationException(
+                'Veuillez confomer votre adress email avant de vous connecter.'
+            );
+        }
 
         return new Passport(
             new UserBadge($email),
