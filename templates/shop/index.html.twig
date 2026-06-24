@@ -9,9 +9,21 @@
         <aside class="filtres">
             <p>Fourchette de prix</p>
             <ul>
-                <li>10 à 29 €</li>
-                <li>30 à 35 €</li>
-                <li>35 à 50 €</li>
+                <li class="{% if min == 10 and max == 29 %}active-filter{% endif %}">
+                    <a href="{{ path('app_shop', { min: 10, max: 29}) }}">
+                        10 à 29 €
+                    </a>
+                </li>
+                <li class="{% if min == 30 and max == 35 %}active-filter{% endif %}">
+                    <a href="{{ path('app_shop', { min: 30, max: 35}) }}">
+                        30 à 35 €
+                    </a>
+                </li>
+                <li class="{% if min == 5 and max == 50 %}active-filter{% endif %}">
+                    <a href="{{ path('app_shop', { min: 5, max: 50}) }}">
+                        5 à 50 €
+                    </a>
+                </li>
             </ul>
         </aside>
  

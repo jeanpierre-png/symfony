@@ -43,18 +43,40 @@
 
                 <nav>
 
-                    <a href="{{ path('app_home') }}">Accueil</a>
+                    <a  class="{% if app.request.attributes.get('_route') == 'app_home' %}active-link{% endif %}" 
+                        href="{{ path('app_home') }}">Accueil
+                    </a>
 
                     {% if app.user %}
                                     
-                        <a href="{{ path('app_shop') }}">Boutique</a>
-                        <a href="{{ path('app_cart') }}">Panier</a>
-                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        <a  class="{% if app.request.attributes.get('_route') == 'app_shop' %}active-link{% endif %}" 
+                            href="{{ path('app_shop') }}"
+                        >
+                            Boutique
+                        </a>
+                        <a  class="{% if app.request.attributes.get('_route') == 'app_cart' %}active-link{% endif %}"  
+                            href="{{ path('app_cart') }}"
+                        >
+                            Panier
+                        </a>
+                        <a  class="{% if app.request.attributes.get('_route') == 'app_logout' %}active-link{% endif %}" 
+                            href="{{ path('app_logout') }}"
+                        >
+                            Se déconnecter
+                        </a>
 
                     {% else %}   
 
-                        <a href="{{ path('app_register') }}">S'inscrire</a>
-                        <a href="{{ path('app_login') }}">Se connecter</a>
+                        <a  class="{% if app.request.attributes.get('_route') == 'app_register' %}active-link{% endif %}"  
+                            href="{{ path('app_register') }}"
+                        >
+                            S'inscrire
+                        </a>
+                        <a  class="{% if app.request.attributes.get('_route') == 'app_login' %}active-link{% endif %}"  
+                            href="{{ path('app_login') }}"
+                        >
+                            Se connecter
+                        </a>
 
                     {% endif %}
                 </nav> 

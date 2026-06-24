@@ -77,3 +77,12 @@
 .filtres li:hover {
     background: rgb(234, 248, 255);
 }
+
+.filtres a {
+    text-decoration: none;
+    color: black;
+}
+
+.active-filter {
+    background: rgb(234, 248, 255);
+}
